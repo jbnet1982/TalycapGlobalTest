@@ -1,0 +1,497 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TalycapGlobalBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Almacen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoAlmacenId" Type="Int32" Nullable="false" />
+    <Property Name="CiudadId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoAlmacen" Relationship="Self.FK_Almacen_TipoAlmacen" FromRole="Almacen" ToRole="TipoAlmacen" />
+    <NavigationProperty Name="Productoes" Relationship="Self.FK_Producto_Almacen" FromRole="Almacen" ToRole="Producto" />
+    <NavigationProperty Name="Ciudad" Relationship="TalycapGlobalBDModel.FK_Almacen_Ciudad" FromRole="Almacen" ToRole="Ciudad" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RegionId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Region" Relationship="Self.FK_Ciudad_Region" FromRole="Ciudad" ToRole="Region" />
+    <NavigationProperty Name="Clientes" Relationship="Self.FK_Cliente_Ciudad" FromRole="Ciudad" ToRole="Cliente" />
+    <NavigationProperty Name="Almacens" Relationship="TalycapGlobalBDModel.FK_Almacen_Ciudad" FromRole="Ciudad" ToRole="Almacen" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nit" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Indicativo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CiudadId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ciudad" Relationship="Self.FK_Cliente_Ciudad" FromRole="Cliente" ToRole="Ciudad" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_Cliente" FromRole="Cliente" ToRole="Guia" />
+  </EntityType>
+  <EntityType Name="Descuento">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Valor" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="CantidadMax" Type="Int32" Nullable="false" />
+    <Property Name="TipoEnvioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TipoEnvio" Relationship="Self.FK_Descuentos_TipoEnvio" FromRole="Descuentos" ToRole="TipoEnvio" />
+  </EntityType>
+  <EntityType Name="Estado">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_Estado" FromRole="Estado" ToRole="Guia" />
+  </EntityType>
+  <EntityType Name="Guia">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="NumGuia" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NumGuia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClienteId" Type="Int32" Nullable="false" />
+    <Property Name="PruductoId" Type="Int32" Nullable="false" />
+    <Property Name="Cantidad" Type="Int32" Nullable="false" />
+    <Property Name="PrecioUnit" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="TotalNeto" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="PorcDesc" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="ValorDesc" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="TotalEnvio" Type="Decimal" Precision="14" Scale="2" Nullable="false" />
+    <Property Name="AlmacenId" Type="Int32" Nullable="false" />
+    <Property Name="VehiculoId" Type="Int32" Nullable="false" />
+    <Property Name="OperadorId" Type="Int32" Nullable="false" />
+    <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FechaEntrega" Type="DateTime" Precision="3" />
+    <Property Name="EstadoId" Type="Int32" Nullable="false" />
+    <Property Name="TipoEnvioId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Guia_Cliente" FromRole="Guia" ToRole="Cliente" />
+    <NavigationProperty Name="Estado" Relationship="Self.FK_Guia_Estado" FromRole="Guia" ToRole="Estado" />
+    <NavigationProperty Name="Operador" Relationship="Self.FK_Guia_Operador" FromRole="Guia" ToRole="Operador" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Guia_Producto" FromRole="Guia" ToRole="Producto" />
+    <NavigationProperty Name="TipoEnvio" Relationship="Self.FK_Guia_TipoEnvio" FromRole="Guia" ToRole="TipoEnvio" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.FK_Guia_Vehiculo" FromRole="Guia" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Operador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NumDoc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoDocId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_Operador" FromRole="Operador" ToRole="Guia" />
+    <NavigationProperty Name="TipoDoc" Relationship="TalycapGlobalBDModel.FK_Operador_TipoDoc" FromRole="Operador" ToRole="TipoDoc" />
+  </EntityType>
+  <EntityType Name="Pai">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CodArea" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Regions" Relationship="Self.FK_Region_Pais" FromRole="Pais" ToRole="Region" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CodRef" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoProductoId" Type="Int32" Nullable="false" />
+    <Property Name="AlmacenId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Almacen" Relationship="Self.FK_Producto_Almacen" FromRole="Producto" ToRole="Almacen" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_Producto" FromRole="Producto" ToRole="Guia" />
+    <NavigationProperty Name="TipoProducto" Relationship="Self.FK_Producto_TipoProducto" FromRole="Producto" ToRole="TipoProducto" />
+    <Property Name="Precio" Type="Decimal" Nullable="false" Precision="14" Scale="2" />
+  </EntityType>
+  <EntityType Name="Region">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PaisId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Ciudads" Relationship="Self.FK_Ciudad_Region" FromRole="Region" ToRole="Ciudad" />
+    <NavigationProperty Name="Pai" Relationship="Self.FK_Region_Pais" FromRole="Region" ToRole="Pais" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoAlmacen">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Almacens" Relationship="Self.FK_Almacen_TipoAlmacen" FromRole="TipoAlmacen" ToRole="Almacen" />
+  </EntityType>
+  <EntityType Name="TipoEnvio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Descuentos" Relationship="Self.FK_Descuentos_TipoEnvio" FromRole="TipoEnvio" ToRole="Descuentos" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_TipoEnvio" FromRole="TipoEnvio" ToRole="Guia" />
+    <NavigationProperty Name="ConsecutivoGuias" Relationship="Self.FK_ConsecutivoGuia_TipoEnvio" FromRole="TipoEnvio" ToRole="ConsecutivoGuia" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Productoes" Relationship="Self.FK_Producto_TipoProducto" FromRole="TipoProducto" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="TipoVehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Vehiculoes" Relationship="Self.FK_Vehiculo_TipoVehiculo" FromRole="TipoVehiculo" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Descripcion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Matricula" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TipoVehiculoId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Guias" Relationship="Self.FK_Guia_Vehiculo" FromRole="Vehiculo" ToRole="Guia" />
+    <NavigationProperty Name="TipoVehiculo" Relationship="Self.FK_Vehiculo_TipoVehiculo" FromRole="Vehiculo" ToRole="TipoVehiculo" />
+  </EntityType>
+  <EntityType Name="ConsecutivoGuia">
+    <Key>
+      <PropertyRef Name="TipoEnvioId" />
+      <PropertyRef Name="Consecutivo" />
+    </Key>
+    <Property Name="TipoEnvioId" Type="Int32" Nullable="false" />
+    <Property Name="Consecutivo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TipoEnvio" Relationship="Self.FK_ConsecutivoGuia_TipoEnvio" FromRole="ConsecutivoGuia" ToRole="TipoEnvio" />
+  </EntityType>
+  <Association Name="FK_Almacen_TipoAlmacen">
+    <End Role="TipoAlmacen" Type="Self.TipoAlmacen" Multiplicity="1" />
+    <End Role="Almacen" Type="Self.Almacen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoAlmacen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Almacen">
+        <PropertyRef Name="TipoAlmacenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Almacen">
+    <End Role="Almacen" Type="Self.Almacen" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Almacen">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="AlmacenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ciudad_Region">
+    <End Role="Region" Type="Self.Region" Multiplicity="1" />
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Region">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ciudad">
+        <PropertyRef Name="RegionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cliente_Ciudad">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Cliente">
+        <PropertyRef Name="CiudadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="ClienteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Descuentos_TipoEnvio">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Descuentos" Type="Self.Descuento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Descuentos">
+        <PropertyRef Name="TipoEnvioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_Estado">
+    <End Role="Estado" Type="Self.Estado" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estado">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="EstadoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_Operador">
+    <End Role="Operador" Type="Self.Operador" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Operador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="OperadorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="PruductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_TipoEnvio">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="TipoEnvioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Guia_Vehiculo">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="1" />
+    <End Role="Guia" Type="Self.Guia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Guia">
+        <PropertyRef Name="VehiculoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Region_Pais">
+    <End Role="Pais" Type="Self.Pai" Multiplicity="1" />
+    <End Role="Region" Type="Self.Region" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pais">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Region">
+        <PropertyRef Name="PaisId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_TipoProducto">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="TipoProductoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ConsecutivoGuia_TipoEnvio">
+    <End Role="TipoEnvio" Type="Self.TipoEnvio" Multiplicity="1" />
+    <End Role="ConsecutivoGuia" Type="Self.ConsecutivoGuia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoEnvio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ConsecutivoGuia">
+        <PropertyRef Name="TipoEnvioId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Vehiculo_TipoVehiculo">
+    <End Role="TipoVehiculo" Type="Self.TipoVehiculo" Multiplicity="1" />
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoVehiculo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Vehiculo">
+        <PropertyRef Name="TipoVehiculoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TalycapGlobalBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Almacens" EntityType="Self.Almacen" />
+    <EntitySet Name="Ciudads" EntityType="Self.Ciudad" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="Descuentos" EntityType="Self.Descuento" />
+    <EntitySet Name="Estadoes" EntityType="Self.Estado" />
+    <EntitySet Name="Guias" EntityType="Self.Guia" />
+    <EntitySet Name="Operadors" EntityType="Self.Operador" />
+    <EntitySet Name="Pais" EntityType="Self.Pai" />
+    <EntitySet Name="Productoes" EntityType="Self.Producto" />
+    <EntitySet Name="Regions" EntityType="Self.Region" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TipoAlmacens" EntityType="Self.TipoAlmacen" />
+    <EntitySet Name="TipoEnvios" EntityType="Self.TipoEnvio" />
+    <EntitySet Name="TipoProductoes" EntityType="Self.TipoProducto" />
+    <EntitySet Name="TipoVehiculoes" EntityType="Self.TipoVehiculo" />
+    <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculo" />
+    <EntitySet Name="ConsecutivoGuias" EntityType="Self.ConsecutivoGuia" />
+    <AssociationSet Name="FK_Almacen_TipoAlmacen" Association="Self.FK_Almacen_TipoAlmacen">
+      <End Role="TipoAlmacen" EntitySet="TipoAlmacens" />
+      <End Role="Almacen" EntitySet="Almacens" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Almacen" Association="Self.FK_Producto_Almacen">
+      <End Role="Almacen" EntitySet="Almacens" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ciudad_Region" Association="Self.FK_Ciudad_Region">
+      <End Role="Region" EntitySet="Regions" />
+      <End Role="Ciudad" EntitySet="Ciudads" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cliente_Ciudad" Association="Self.FK_Cliente_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudads" />
+      <End Role="Cliente" EntitySet="Clientes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_Cliente" Association="Self.FK_Guia_Cliente">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Descuentos_TipoEnvio" Association="Self.FK_Descuentos_TipoEnvio">
+      <End Role="TipoEnvio" EntitySet="TipoEnvios" />
+      <End Role="Descuentos" EntitySet="Descuentos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_Estado" Association="Self.FK_Guia_Estado">
+      <End Role="Estado" EntitySet="Estadoes" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_Operador" Association="Self.FK_Guia_Operador">
+      <End Role="Operador" EntitySet="Operadors" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_Producto" Association="Self.FK_Guia_Producto">
+      <End Role="Producto" EntitySet="Productoes" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_TipoEnvio" Association="Self.FK_Guia_TipoEnvio">
+      <End Role="TipoEnvio" EntitySet="TipoEnvios" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Guia_Vehiculo" Association="Self.FK_Guia_Vehiculo">
+      <End Role="Vehiculo" EntitySet="Vehiculoes" />
+      <End Role="Guia" EntitySet="Guias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Region_Pais" Association="Self.FK_Region_Pais">
+      <End Role="Pais" EntitySet="Pais" />
+      <End Role="Region" EntitySet="Regions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_TipoProducto" Association="Self.FK_Producto_TipoProducto">
+      <End Role="TipoProducto" EntitySet="TipoProductoes" />
+      <End Role="Producto" EntitySet="Productoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ConsecutivoGuia_TipoEnvio" Association="Self.FK_ConsecutivoGuia_TipoEnvio">
+      <End Role="TipoEnvio" EntitySet="TipoEnvios" />
+      <End Role="ConsecutivoGuia" EntitySet="ConsecutivoGuias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Vehiculo_TipoVehiculo" Association="Self.FK_Vehiculo_TipoVehiculo">
+      <End Role="TipoVehiculo" EntitySet="TipoVehiculoes" />
+      <End Role="Vehiculo" EntitySet="Vehiculoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Almacen_Ciudad" Association="TalycapGlobalBDModel.FK_Almacen_Ciudad">
+      <End Role="Ciudad" EntitySet="Ciudads" />
+      <End Role="Almacen" EntitySet="Almacens" />
+    </AssociationSet>
+    <EntitySet Name="TipoDocs" EntityType="TalycapGlobalBDModel.TipoDoc" />
+    <AssociationSet Name="FK_Operador_TipoDoc" Association="TalycapGlobalBDModel.FK_Operador_TipoDoc">
+      <End Role="TipoDoc" EntitySet="TipoDocs" />
+      <End Role="Operador" EntitySet="Operadors" />
+    </AssociationSet>
+  </EntityContainer>
+  <Association Name="FK_Almacen_Ciudad">
+    <End Type="TalycapGlobalBDModel.Ciudad" Role="Ciudad" Multiplicity="1" />
+    <End Type="TalycapGlobalBDModel.Almacen" Role="Almacen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Almacen">
+        <PropertyRef Name="CiudadId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="TipoDoc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Operadors" Relationship="TalycapGlobalBDModel.FK_Operador_TipoDoc" FromRole="TipoDoc" ToRole="Operador" />
+  </EntityType>
+  <Association Name="FK_Operador_TipoDoc">
+    <End Type="TalycapGlobalBDModel.TipoDoc" Role="TipoDoc" Multiplicity="1" />
+    <End Type="TalycapGlobalBDModel.Operador" Role="Operador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDoc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Operador">
+        <PropertyRef Name="TipoDocId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

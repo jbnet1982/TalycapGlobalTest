@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="993bd26d3f174d5d9ed9d4408d53906e" Name="Diagram1">
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Almacen" Width="1.5" PointX="1.5" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Ciudad" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Cliente" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Descuento" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Estado" Width="1.5" PointX="3.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Guia" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Operador" Width="1.5" PointX="3.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Pai" Width="1.5" PointX="1.5" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Producto" Width="1.5" PointX="3.75" PointY="26.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Region" Width="1.5" PointX="1.5" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.TipoAlmacen" Width="1.5" PointX="1.5" PointY="29.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.TipoEnvio" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.TipoProducto" Width="1.5" PointX="1.5" PointY="31.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.TipoVehiculo" Width="1.5" PointX="1.5" PointY="34.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.Vehiculo" Width="1.5" PointX="3.75" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.ConsecutivoGuia" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Almacen_TipoAlmacen" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Producto_Almacen" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Ciudad_Region" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Cliente_Ciudad" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Descuentos_TipoEnvio" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_Estado" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_Operador" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_Producto" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_TipoEnvio" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Guia_Vehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Region_Pais" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Producto_TipoProducto" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_ConsecutivoGuia_TipoEnvio" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Vehiculo_TipoVehiculo" ManuallyRouted="false" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Almacen_Ciudad" />
+        <EntityTypeShape EntityType="TalycapGlobalBDModel.TipoDoc" Width="1.5" PointX="1.5" PointY="23.25" />
+        <AssociationConnector Association="TalycapGlobalBDModel.FK_Operador_TipoDoc" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

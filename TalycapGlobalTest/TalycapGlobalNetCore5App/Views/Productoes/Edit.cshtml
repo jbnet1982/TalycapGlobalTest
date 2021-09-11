@@ -1,0 +1,60 @@
+﻿@model TalycapGlobalNetCore5App.Models.Producto
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Producto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="CodRef" class="control-label"></label>
+                <input asp-for="CodRef" class="form-control" />
+                <span asp-validation-for="CodRef" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label"></label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Descripcion" class="control-label"></label>
+                <input asp-for="Descripcion" class="form-control" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AlmacenId" class="control-label"></label>
+                <select asp-for="AlmacenId" class="form-control" asp-items="ViewBag.AlmacenId"></select>
+                <span asp-validation-for="AlmacenId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoProductoId" class="control-label"></label>
+                <select asp-for="TipoProductoId" class="form-control" asp-items="ViewBag.TipoProductoId"></select>
+                <span asp-validation-for="TipoProductoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="precio" class="control-label"></label>
+                <input asp-for="precio" class="form-control" />
+                <span asp-validation-for="precio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

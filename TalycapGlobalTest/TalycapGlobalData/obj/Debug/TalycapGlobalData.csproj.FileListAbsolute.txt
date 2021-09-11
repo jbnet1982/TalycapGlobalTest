@@ -1,0 +1,12 @@
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\TalycapGlobalData.dll.config
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\TalycapGlobalData.dll
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\TalycapGlobalData.pdb
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\EntityFramework.dll
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\EntityFramework.xml
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\obj\Debug\TalycapGlobalData.csproj.AssemblyReference.cache
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\obj\Debug\TalycapGlobalData.csproj.CoreCompileInputs.cache
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\obj\Debug\TalycapGlobalData.csproj.CopyComplete
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\obj\Debug\TalycapGlobalData.dll
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalData\obj\Debug\TalycapGlobalData.pdb

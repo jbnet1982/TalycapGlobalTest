@@ -1,0 +1,126 @@
+﻿@model IEnumerable<TalycapGlobalNetCore5App.Models.Guia>
+
+@{
+    ViewData["Title"] = "LogisticaTerrestre";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>LogisticaTerrestre</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NumGuia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pruducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioUnit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalNeto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PorcDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ValorDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalEnvio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.almacen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiculo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.operador)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEntrega)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoEnvio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumGuia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliente.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pruducto.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalNeto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PorcDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalEnvio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.almacen.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiculo.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.operador.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoEnvio.Id)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

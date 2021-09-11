@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/TalycapGlobalData" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/TalycapGlobalData" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="Descuento">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CantidadMax" type="xs:int" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoEnvio" nillable="true" type="tns:TipoEnvio" />
+      <xs:element minOccurs="0" name="TipoEnvioId" type="xs:int" />
+      <xs:element minOccurs="0" name="Valor" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Descuento" nillable="true" type="tns:Descuento" />
+  <xs:complexType name="TipoEnvio">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ConsecutivoGuias" nillable="true" type="tns:ArrayOfConsecutivoGuia" />
+      <xs:element minOccurs="0" name="Descuentos" nillable="true" type="tns:ArrayOfDescuento" />
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoEnvio" nillable="true" type="tns:TipoEnvio" />
+  <xs:complexType name="ArrayOfConsecutivoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ConsecutivoGuia" nillable="true" type="tns:ConsecutivoGuia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfConsecutivoGuia" nillable="true" type="tns:ArrayOfConsecutivoGuia" />
+  <xs:complexType name="ConsecutivoGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Consecutivo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoEnvio" nillable="true" type="tns:TipoEnvio" />
+      <xs:element minOccurs="0" name="TipoEnvioId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ConsecutivoGuia" nillable="true" type="tns:ConsecutivoGuia" />
+  <xs:complexType name="ArrayOfDescuento">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Descuento" nillable="true" type="tns:Descuento" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDescuento" nillable="true" type="tns:ArrayOfDescuento" />
+  <xs:complexType name="ArrayOfGuia">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Guia" nillable="true" type="tns:Guia" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGuia" nillable="true" type="tns:ArrayOfGuia" />
+  <xs:complexType name="Guia">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AlmacenId" type="xs:int" />
+      <xs:element minOccurs="0" name="Cantidad" type="xs:int" />
+      <xs:element minOccurs="0" name="Cliente" nillable="true" type="tns:Cliente" />
+      <xs:element minOccurs="0" name="ClienteId" type="xs:int" />
+      <xs:element minOccurs="0" name="Estado" nillable="true" type="tns:Estado" />
+      <xs:element minOccurs="0" name="EstadoId" type="xs:int" />
+      <xs:element minOccurs="0" name="FechaEntrega" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="FechaRegistro" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NumGuia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operador" nillable="true" type="tns:Operador" />
+      <xs:element minOccurs="0" name="OperadorId" type="xs:int" />
+      <xs:element minOccurs="0" name="PorcDesc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="PrecioUnit" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Producto" nillable="true" type="tns:Producto" />
+      <xs:element minOccurs="0" name="PruductoId" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoEnvio" nillable="true" type="tns:TipoEnvio" />
+      <xs:element minOccurs="0" name="TipoEnvioId" type="xs:int" />
+      <xs:element minOccurs="0" name="TotalEnvio" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TotalNeto" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ValorDesc" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+      <xs:element minOccurs="0" name="VehiculoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Guia" nillable="true" type="tns:Guia" />
+  <xs:complexType name="Cliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:Ciudad" />
+      <xs:element minOccurs="0" name="CiudadId" type="xs:int" />
+      <xs:element minOccurs="0" name="Direccion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Indicativo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefono" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Cliente" nillable="true" type="tns:Cliente" />
+  <xs:complexType name="Ciudad">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Almacens" nillable="true" type="tns:ArrayOfAlmacen" />
+      <xs:element minOccurs="0" name="Clientes" nillable="true" type="tns:ArrayOfCliente" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Region" nillable="true" type="tns:Region" />
+      <xs:element minOccurs="0" name="RegionId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ciudad" nillable="true" type="tns:Ciudad" />
+  <xs:complexType name="ArrayOfAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Almacen" nillable="true" type="tns:Almacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlmacen" nillable="true" type="tns:ArrayOfAlmacen" />
+  <xs:complexType name="Almacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudad" nillable="true" type="tns:Ciudad" />
+      <xs:element minOccurs="0" name="CiudadId" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Productoes" nillable="true" type="tns:ArrayOfProducto" />
+      <xs:element minOccurs="0" name="TipoAlmacen" nillable="true" type="tns:TipoAlmacen" />
+      <xs:element minOccurs="0" name="TipoAlmacenId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Almacen" nillable="true" type="tns:Almacen" />
+  <xs:complexType name="ArrayOfProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Producto" nillable="true" type="tns:Producto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProducto" nillable="true" type="tns:ArrayOfProducto" />
+  <xs:complexType name="Producto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Almacen" nillable="true" type="tns:Almacen" />
+      <xs:element minOccurs="0" name="AlmacenId" type="xs:int" />
+      <xs:element minOccurs="0" name="CodRef" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Precio" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TipoProducto" nillable="true" type="tns:TipoProducto" />
+      <xs:element minOccurs="0" name="TipoProductoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Producto" nillable="true" type="tns:Producto" />
+  <xs:complexType name="TipoProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Productoes" nillable="true" type="tns:ArrayOfProducto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoProducto" nillable="true" type="tns:TipoProducto" />
+  <xs:complexType name="TipoAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Almacens" nillable="true" type="tns:ArrayOfAlmacen" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoAlmacen" nillable="true" type="tns:TipoAlmacen" />
+  <xs:complexType name="ArrayOfCliente">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Cliente" nillable="true" type="tns:Cliente" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCliente" nillable="true" type="tns:ArrayOfCliente" />
+  <xs:complexType name="Region">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ciudads" nillable="true" type="tns:ArrayOfCiudad" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Pai" nillable="true" type="tns:Pai" />
+      <xs:element minOccurs="0" name="PaisId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Region" nillable="true" type="tns:Region" />
+  <xs:complexType name="ArrayOfCiudad">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ciudad" nillable="true" type="tns:Ciudad" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCiudad" nillable="true" type="tns:ArrayOfCiudad" />
+  <xs:complexType name="Pai">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CodArea" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Regions" nillable="true" type="tns:ArrayOfRegion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pai" nillable="true" type="tns:Pai" />
+  <xs:complexType name="ArrayOfRegion">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Region" nillable="true" type="tns:Region" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRegion" nillable="true" type="tns:ArrayOfRegion" />
+  <xs:complexType name="Estado">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Estado" nillable="true" type="tns:Estado" />
+  <xs:complexType name="Operador">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombres" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumDoc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoDoc" nillable="true" type="tns:TipoDoc" />
+      <xs:element minOccurs="0" name="TipoDocId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Operador" nillable="true" type="tns:Operador" />
+  <xs:complexType name="TipoDoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Operadors" nillable="true" type="tns:ArrayOfOperador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoDoc" nillable="true" type="tns:TipoDoc" />
+  <xs:complexType name="ArrayOfOperador">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Operador" nillable="true" type="tns:Operador" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOperador" nillable="true" type="tns:ArrayOfOperador" />
+  <xs:complexType name="Vehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Descripcion" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Guias" nillable="true" type="tns:ArrayOfGuia" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Matricula" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoVehiculo" nillable="true" type="tns:TipoVehiculo" />
+      <xs:element minOccurs="0" name="TipoVehiculoId" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+  <xs:complexType name="TipoVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Nombre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Vehiculoes" nillable="true" type="tns:ArrayOfVehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoVehiculo" nillable="true" type="tns:TipoVehiculo" />
+  <xs:complexType name="ArrayOfVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Vehiculo" nillable="true" type="tns:Vehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVehiculo" nillable="true" type="tns:ArrayOfVehiculo" />
+  <xs:complexType name="ArrayOfPai">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pai" nillable="true" type="tns:Pai" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPai" nillable="true" type="tns:ArrayOfPai" />
+  <xs:complexType name="ArrayOfTipoAlmacen">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoAlmacen" nillable="true" type="tns:TipoAlmacen" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoAlmacen" nillable="true" type="tns:ArrayOfTipoAlmacen" />
+  <xs:complexType name="ArrayOfTipoProducto">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoProducto" nillable="true" type="tns:TipoProducto" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoProducto" nillable="true" type="tns:ArrayOfTipoProducto" />
+  <xs:complexType name="ArrayOfTipoEnvio">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoEnvio" nillable="true" type="tns:TipoEnvio" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoEnvio" nillable="true" type="tns:ArrayOfTipoEnvio" />
+  <xs:complexType name="ArrayOfTipoDoc">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoDoc" nillable="true" type="tns:TipoDoc" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoDoc" nillable="true" type="tns:ArrayOfTipoDoc" />
+  <xs:complexType name="ArrayOfTipoVehiculo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TipoVehiculo" nillable="true" type="tns:TipoVehiculo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTipoVehiculo" nillable="true" type="tns:ArrayOfTipoVehiculo" />
+  <xs:complexType name="ArrayOfEstado">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Estado" nillable="true" type="tns:Estado" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEstado" nillable="true" type="tns:ArrayOfEstado" />
+</xs:schema>

@@ -1,0 +1,7 @@
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.csproj.AssemblyReference.cache
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.AssemblyInfoInputs.cache
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.AssemblyInfo.cs
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.csproj.CoreCompileInputs.cache
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bulan\Desktop\TalycapGlobal Test\TalycapGlobalTest\TalycapGlobalWebAPI\obj\Debug\net5.0\TalycapGlobalWebAPI.MvcApplicationPartsAssemblyInfo.cache
